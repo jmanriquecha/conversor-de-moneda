@@ -18,7 +18,6 @@ public class ConsultaMoneda {
                 .concat(key)
                 .concat("/latest/")
                 .concat(String.valueOf(moneda));
-        System.out.println(url);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -30,9 +29,7 @@ public class ConsultaMoneda {
                     .send(request, HttpResponse.BodyHandlers.ofString());
             Gson json = new GsonBuilder().setPrettyPrinting().create();
             return json.fromJson(response.body(), Moneda.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
