@@ -10,11 +10,11 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ConsultaMoneda consulta = new ConsultaMoneda();
-        ConversionMoneda convertirMoneda = new ConversionMoneda();
-        Moneda moneda = null;
-        double cantidad = 0;
+        ConversionMoneda valor = new ConversionMoneda();
         var mensaje = "Ingresa el valor que deseas convertir";
+        double cantidad = 0;
+        var monedaBase = "";
+        var convertirA = "";
 
         var menu = """
                 
@@ -41,16 +41,18 @@ public class App {
 
                 switch (opcionMoneda){
                     case 1:
-                        moneda = consulta.buscar("USD");
+                        monedaBase = "USD";
+                        convertirA = "COP";
                         System.out.println(mensaje);
                         cantidad = Double.parseDouble(scanner.nextLine());
-                        convertirMoneda.convertir(cantidad, "USD", "COP", moneda.conversion_rates());
+                        valor.valorAConvertir(cantidad,monedaBase, convertirA);
                         break;
                     case 2:
-                        moneda = consulta.buscar("COP");
+                        monedaBase = "COP";
+                        convertirA = "USD";
                         System.out.println(mensaje);
                         cantidad = Double.parseDouble(scanner.nextLine());
-                        convertirMoneda.convertir(cantidad, "COP", "USD", moneda.conversion_rates());
+                        valor.valorAConvertir(cantidad,monedaBase, convertirA);
                         break;
                     default:
                         System.out.println("Saliendo del sistema!");

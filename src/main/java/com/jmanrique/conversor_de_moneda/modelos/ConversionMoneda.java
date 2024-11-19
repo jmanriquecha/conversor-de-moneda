@@ -15,4 +15,11 @@ public class ConversionMoneda {
           }
       });
   }
+
+    public void valorAConvertir(double cantidad, String monedaBase, String convertirA){
+        ConsultaMoneda consulta = new ConsultaMoneda();
+        ConversionMoneda convertirMoneda = new ConversionMoneda();
+        Moneda moneda = consulta.buscar(monedaBase);
+        convertirMoneda.convertir(cantidad, monedaBase, convertirA, moneda.conversion_rates());
+    }
 }
