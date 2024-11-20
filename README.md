@@ -13,7 +13,7 @@ Este es un proyecto en Java que permite convertir entre diferentes monedas utili
 ---
 
 ## Requisitos
-- **Java 16** o superior.
+- **Java 8** o superior.
 - **Maven** instalado en tu sistema.
 - Una cuenta en [ExchangeRate](https://www.exchangerate-api.com/) para obtener una clave API.
 
